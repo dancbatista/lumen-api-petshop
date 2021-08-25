@@ -22,4 +22,13 @@ class OwnersController
             status: 201
         );
     }
+
+    public function show(int $id)
+    {
+        $owner = Owner::find($id);
+        if (is_null($owner)) {
+            return response()->json("", status: 204);
+        }
+        return response()->json($owner);
+    }
 }

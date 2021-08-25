@@ -20,4 +20,5 @@ $router->get("/", function () use ($router) {
 $router->group(["prefix" => "api"], function () use ($router) {
     $router->post("owners", "OwnersController@store");
     $router->get("owners", "OwnersController@index");
+    $router->get("owners/{id}", "OwnersController@show");
 });
