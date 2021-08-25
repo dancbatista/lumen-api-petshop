@@ -14,8 +14,17 @@ class CriarTabelaPets extends Migration
     public function up()
     {
         Schema::create("pets", function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->bigIncrements("id");
+            $table->bigInteger("owner_id")->unsigned();
+            $table->string("name");
+            $table->integer("age");
+            $table->string("kind");
+            $table->string("race");
+
+            $table
+                ->foreign("owner_id")
+                ->references("id")
+                ->on("owners");
         });
     }
 
