@@ -18,5 +18,6 @@ $router->get("/", function () use ($router) {
 });
 
 $router->group(["prefix" => "api"], function () use ($router) {
-    $router->get("/owners", "OwnersController@index");
+    $router->post("owners", "OwnersController@store");
+    $router->get("owners", "OwnersController@index");
 });
