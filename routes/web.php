@@ -18,5 +18,5 @@ $router->get("/", function () use ($router) {
 });
 
 $router->group(["prefix" => "api"], function () use ($router) {
-    $router->get("/pets", "PetsController@index");
+    $router->get("/owners", "OwnersController@index");
 });

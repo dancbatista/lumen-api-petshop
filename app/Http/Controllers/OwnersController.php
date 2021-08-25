@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-class PetsController
+use App\Owner;
+
+class OwnersController
 {
     public function index()
     {
-        return ["Elefante, Papagaio"];
+        return Owner::all();
     }
 }
