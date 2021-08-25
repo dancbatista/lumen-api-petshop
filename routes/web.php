@@ -21,4 +21,5 @@ $router->group(["prefix" => "api"], function () use ($router) {
     $router->post("owners", "OwnersController@store");
     $router->get("owners", "OwnersController@index");
     $router->get("owners/{id}", "OwnersController@show");
+    $router->put("owners/{id}", "OwnersController@update");
 });
