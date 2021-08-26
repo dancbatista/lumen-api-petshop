@@ -31,7 +31,7 @@ class OwnersController
         $owner = Owner::find($id);
         if (is_null($owner)) {
             return response()->json(
-                ["erros" => "Recurso não encontrado!"],
+                ["error" => "Recurso não encontrado!"],
                 status: 404
             );
         }
@@ -39,5 +39,18 @@ class OwnersController
         $owner->save();
 
         return $owner;
+    }
+
+    public function destroy(int $id)
+    {
+        $numberOfResourcesRemoved = Owner::destroy($id);
+        if ($numberOfResourcesRemoved === 0) {
+            return response()->json(
+                ["error" => "Recurso não encontrado"],
+                status: 404
+            );
+        }
+
+        return response()->json("", status: 204);
     }
 }
