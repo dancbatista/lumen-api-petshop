@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Pet extends Model
 {
     public $timestamps = false;
-    protected $fillable = ["name", "age", "kind", "race"];
+    protected $fillable = ["owner_id", "name", "age", "kind", "race"];
 
     public function owner()
     {
