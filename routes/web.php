@@ -27,10 +27,10 @@ $router->group(["prefix" => "api"], function () use ($router) {
     });
 
     $router->group(["prefix" => "pets"], function () use ($router) {
-        $router->post("", "Controller@store");
-        $router->get("", "Controller@index");
-        $router->get("{id}", "Controller@show");
-        $router->put("{id}", "Controller@update");
-        $router->delete("{id}", "Controller@destroy");
+        $router->post("", "PetsController@store");
+        $router->get("", "PetsController@index");
+        $router->get("{id}", "PetsController@show");
+        $router->put("{id}", "PetsController@update");
+        $router->delete("{id}", "PetsController@destroy");
     });
 });
