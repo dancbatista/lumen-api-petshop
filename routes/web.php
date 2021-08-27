@@ -18,9 +18,19 @@ $router->get("/", function () use ($router) {
 });
 
 $router->group(["prefix" => "api"], function () use ($router) {
-    $router->post("owners", "OwnersController@store");
-    $router->get("owners", "OwnersController@index");
-    $router->get("owners/{id}", "OwnersController@show");
-    $router->put("owners/{id}", "OwnersController@update");
-    $router->delete("owners/{id}", "OwnersController@destroy");
+    $router->group(["prefix" => "owners"], function () use ($router) {
+        $router->post("", "OwnersController@store");
+        $router->get("", "OwnersController@index");
+        $router->get("{id}", "OwnersController@show");
+        $router->put("{id}", "OwnersController@update");
+        $router->delete("{id}", "OwnersController@destroy");
+    });
+
+    $router->group(["prefix" => "pets"], function () use ($router) {
+        $router->post("", "PetsController@store");
+        $router->get("", "PetsController@index");
+        $router->get("{id}", "PetsController@show");
+        $router->put("{id}", "PetsController@update");
+        $router->delete("{id}", "PetsController@destroy");
+    });
 });
